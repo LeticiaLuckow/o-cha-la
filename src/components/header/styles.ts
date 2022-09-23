@@ -13,6 +13,11 @@ const DivLogo = styled.div`
   padding: 12px 48px;
   flex: 1;
   align-items: center;
+  background: linear-gradient(
+    270deg,
+    rgba(189, 236, 175, 0.9923319669664741) 50%,
+    rgba(255, 227, 237, 1) 50%
+  );
 `;
 
 const DivLogin = styled.div`
