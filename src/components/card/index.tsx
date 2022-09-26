@@ -1,3 +1,4 @@
+import { Product } from '../../types/product';
 import {
   ButtonCard,
   CardDiv,
@@ -7,15 +8,19 @@ import {
   Price,
 } from './styles';
 
-const Card = () => {
+type CardType = {
+  productData: Product;
+};
+
+const Card = ({ productData }: CardType) => {
   return (
     <>
       <CardDiv>
-        <CardImage src="https://www.vortexmag.net/wp-content/uploads/2020/11/pic.jpg" />
-        <NameProduct>Chá de Camomila</NameProduct>
-        <FakePrice>R$ 32,00</FakePrice>
-        <Price>R$ 26,00</Price>
-        <ButtonCard>Adicionar ao carrinho</ButtonCard>
+        <CardImage src={productData.image} />
+        <NameProduct>{productData.name}</NameProduct>
+        <FakePrice>{productData.fakePrice}</FakePrice>
+        <Price>{productData.price}</Price>
+        <ButtonCard>Add to cart</ButtonCard>
       </CardDiv>
     </>
   );
