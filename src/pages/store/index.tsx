@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Card from '../../components/card';
 import Header from '../../components/header';
-import { ObjectProduct, Product } from '../../types/product';
+import { ObjectProduct } from '../../types/product';
 import { CardStore, CardStoreP } from './styles';
 
 const Store: NextPage = () => {
@@ -25,7 +25,11 @@ const Store: NextPage = () => {
       <CardStore>
         {product &&
           product.map((bolinha) => (
-            <Card productData={bolinha.attributes} key={bolinha.id} />
+            <Card
+              productData={bolinha.attributes}
+              key={bolinha.id}
+              id={bolinha.id}
+            />
           ))}
       </CardStore>
     </>

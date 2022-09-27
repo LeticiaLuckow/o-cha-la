@@ -16,6 +16,7 @@ const CardImage = styled.img`
 
 const NameProduct = styled.p`
   font-size: 18px;
+  cursor: pointer;
 `;
 
 const FakePrice = styled.p`

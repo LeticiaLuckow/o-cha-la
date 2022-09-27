@@ -11,16 +11,21 @@ import {
 
 type CardType = {
   productData: Product;
+  id: number;
 };
 
-const Card = ({ productData }: CardType) => {
+const Card = ({ productData, id }: CardType) => {
   return (
     <>
       <CardDiv>
         <CardImage src={productData.image} />
-        <NameProduct>{productData.name}</NameProduct>
-        <FakePrice>{productData.fakePrice}</FakePrice>
-        <Price>{productData.price}</Price>
+
+        <Link href={`/productDescription/${id}`}>
+          <NameProduct>{productData.name}</NameProduct>
+        </Link>
+
+        <FakePrice>U${productData.fakePrice.toFixed(2)}</FakePrice>
+        <Price>U${productData.price.toFixed(2)}</Price>
         <ButtonCard>Add to cart</ButtonCard>
       </CardDiv>
     </>
