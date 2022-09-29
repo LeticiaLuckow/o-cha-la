@@ -8,7 +8,7 @@ const Home: NextPage = () => {
     <div
       style={{
         background:
-          'linear-gradient(270deg, rgba(189, 236, 175, 0.9923319669664741) 50%, rgba(255, 227, 237, 1) 50%)',
+          'linear-gradient(270deg, rgba(224,254,215,0.9923319669664741) 50%, rgba(254,243,255,1) 50%)',
         minHeight: '100vh',
       }}
     >

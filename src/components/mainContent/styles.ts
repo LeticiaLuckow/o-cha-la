@@ -4,6 +4,7 @@ const DivNav = styled.div`
   display: flex;
   padding: 12px 48px;
   align-items: center;
+  font-family: 'Uchen', serif;
 
   @media only screen and (max-width: 1024px) {
     flex-direction: column;
@@ -16,7 +17,6 @@ const DescriptionDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  font-family: 'Uchen', serif;
 `;
 
 const ImageDiv = styled.div`
@@ -42,7 +42,6 @@ const MaxImage = styled.img`
 const CardDiv = styled.div`
   display: flex;
   align-items: center;
-  font-family: 'Uchen', serif;
   flex-direction: column;
   border: 1px solid #ff000026;
   box-shadow: 0px 3px 16px 2px #3a3339;
