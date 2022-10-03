@@ -10,3 +10,5 @@ export type Product = {
 };
 
 export type ObjectProduct = { id: number; attributes: Product };
+
+export type ProductBag = { quantity: number; product: Product };

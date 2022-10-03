@@ -1,5 +1,7 @@
 import type { NextPage } from 'next';
+import { useEffect, useState } from 'react';
 import Header from '../../components/header';
+import axios from 'axios';
 import {
   BagP,
   ButtonCartBag,
@@ -11,8 +13,14 @@ import {
   ThBag,
   ThCart,
 } from './styles';
+import { ProductBag } from '../../types/product';
 
 const Bag: NextPage = () => {
+  const [bag, setBag] = useState<ProductBag[]>([]);
+  useEffect(() => {
+    setBag(JSON.parse(localStorage.getItem('bag') || '[]') as ProductBag[]);
+  }, []);
+
   return (
     <>
       <div>
@@ -39,18 +47,27 @@ const Bag: NextPage = () => {
           </thead>
 
           <tbody>
-            <tr>
-              <TdBag>
-                <img
-                  style={{ width: '120px', padding: '8px' }}
-                  src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/05fc9b149498459.62f3abbc6ee87.png"
-                />
-              </TdBag>
-              <TdBag>Body1 linha1</TdBag>
-              <TdBag>Body2 linha1</TdBag>
-              <TdBag>Body3 linha1</TdBag>
-              <TdBag>Body3 linha1</TdBag>
-            </tr>
+            {bag &&
+              bag.map((bolinha) => (
+                <tr>
+                  <>
+                    <TdBag>
+                      <img
+                        src={bolinha.product.image}
+                        style={{ width: '100px' }}
+                      />
+                    </TdBag>
+                    <TdBag>{bolinha.product.name}</TdBag>
+                    <TdBag>{bolinha.product.price.toFixed(2)}</TdBag>
+                    <TdBag
+                      style={{ boxShadow: 'inset 0 1px 2px rgb(0 0 0 / 13%)' }}
+                    >
+                      {bolinha.quantity}
+                    </TdBag>
+                    <TdBag>{}</TdBag>
+                  </>
+                </tr>
+              ))}
           </tbody>
         </TableBag>
       </div>
