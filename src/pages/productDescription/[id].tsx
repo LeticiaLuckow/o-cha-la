@@ -27,6 +27,9 @@ const ProductDescription: NextPage = () => {
     }
   }, [id]);
 
+  const buy = () => {
+    alert('comprou');
+  };
   return (
     <>
       <div>
@@ -41,7 +44,7 @@ const ProductDescription: NextPage = () => {
               <FakePrice>{product.attributes.fakePrice.toFixed(2)}</FakePrice>
               <Price>{product.attributes.price.toFixed(2)}</Price>
               <p>{product.attributes.description}</p>
-              <ButtonCard>Buy</ButtonCard>
+              <ButtonCard onClick={buy}>Buy</ButtonCard>
             </div>
           </>
         )}

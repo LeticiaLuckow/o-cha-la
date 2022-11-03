@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState } from 'react';
+
 import { Product, ProductBag } from '../../types/product';
 import {
   ButtonCard,
@@ -27,11 +27,11 @@ const Card = ({ productData, id }: CardType) => {
     };
 
     //aqui ele adiciona o newitem dentro da variavel bag
-    bag.push(newItem);
-
     if (
-      bag.filter((item) => item.product.name === productData.name).length > 0
+      bag.filter((item) => item.product.name === productData.name).length === 0
     ) {
+      bag.push(newItem);
+
       // armazena os valores no localstorege (localStorage.setItem) e isso transforma o array/obj em stringe (JSON.stringify(bag))
       localStorage.setItem('bag', JSON.stringify(bag));
       alert('item adicionado ao carrinho');

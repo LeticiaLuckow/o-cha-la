@@ -36,6 +36,7 @@ const ButtonCard = styled.button`
   background: #203b3f;
   color: white;
   padding: 4px;
+  cursor: pointer;
 `;
 
 export { CardDiv, CardImage, NameProduct, FakePrice, Price, ButtonCard };

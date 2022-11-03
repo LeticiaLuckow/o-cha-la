@@ -17,6 +17,7 @@ import { ProductBag } from '../../types/product';
 
 const Bag: NextPage = () => {
   const [bag, setBag] = useState<ProductBag[]>([]);
+
   useEffect(() => {
     setBag(JSON.parse(localStorage.getItem('bag') || '[]') as ProductBag[]);
   }, []);
@@ -48,8 +49,8 @@ const Bag: NextPage = () => {
 
           <tbody>
             {bag &&
-              bag.map((bolinha) => (
-                <tr>
+              bag.map((bolinha, index) => (
+                <tr key={bolinha.product.name + index.toString()}>
                   <>
                     <TdBag>
                       <img
@@ -59,10 +60,23 @@ const Bag: NextPage = () => {
                     </TdBag>
                     <TdBag>{bolinha.product.name}</TdBag>
                     <TdBag>{bolinha.product.price.toFixed(2)}</TdBag>
-                    <TdBag
-                      style={{ boxShadow: 'inset 0 1px 2px rgb(0 0 0 / 13%)' }}
-                    >
-                      {bolinha.quantity}
+                    <TdBag>
+                      <div
+                        style={{ display: 'flex', justifyContent: 'center' }}
+                      >
+                        <input
+                          type={'number'}
+                          style={{ width: '52px' }}
+                          value={bolinha.quantity}
+                          onChange={(e) => {
+                            const newBag = [...bag];
+                            newBag[index].quantity = e.target.valueAsNumber;
+                            localStorage.setItem('bag', JSON.stringify(newBag));
+
+                            setBag(newBag);
+                          }}
+                        />
+                      </div>
                     </TdBag>
                     <TdBag>{}</TdBag>
                   </>
