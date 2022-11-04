@@ -21,7 +21,7 @@ const Store: NextPage = () => {
       <div>
         <Header />
       </div>
-      <CardStoreP>Products from our store</CardStoreP>
+      <CardStoreP>Produtos da nossa loja</CardStoreP>
       <CardStore>
         {product &&
           product.map((bolinha) => (

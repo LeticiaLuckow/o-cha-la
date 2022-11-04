@@ -47,29 +47,14 @@ const TdCart = styled.th`
 
 const ButtonCartBag = styled.button`
   margin: 10px;
-  background: #203b3f;
+  background: #739669fc;
   color: white;
   padding: 4px;
   font-size: 18px;
-  font-family: uchen;
+  border-radius: 4px;
+  border: 1px solid #dadada;
+  font-size: 14px;
+  cursor: pointer;
 `;
 
-const ButtonCartDelete = styled.button`
-  margin: 10px;
-  background: white;
-  color: #203b3f;
-  padding: 4px;
-  font-size: 18px;
-  font-family: uchen;
-`;
-export {
-  BagP,
-  TableBag,
-  ThBag,
-  TdBag,
-  CartP,
-  ThCart,
-  TdCart,
-  ButtonCartBag,
-  ButtonCartDelete,
-};
+export { BagP, TableBag, ThBag, TdBag, CartP, ThCart, TdCart, ButtonCartBag };

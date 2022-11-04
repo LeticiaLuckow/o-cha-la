@@ -8,6 +8,7 @@ const CardDiv = styled.div`
   align-content: center;
   align-items: center;
   margin: 42px;
+  padding: 8px;
 `;
 
 const CardImage = styled.img`
@@ -33,10 +34,12 @@ const Price = styled.p`
 
 const ButtonCard = styled.button`
   margin: 10px;
-  background: #203b3f;
+  background: #739669fc;
   color: white;
   padding: 4px;
   cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #dadada;
 `;
 
 export { CardDiv, CardImage, NameProduct, FakePrice, Price, ButtonCard };

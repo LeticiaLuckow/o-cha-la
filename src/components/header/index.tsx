@@ -10,15 +10,15 @@ const Header = () => {
 
       <MenuDiv>
         <SpanDiv>
-          <Link href="/store">Store</Link>
+          <Link href="/store">Loja</Link>
         </SpanDiv>
         <SpanDiv>
-          <Link href="/bag">Bag</Link>
+          <Link href="/bag">Sacola</Link>
         </SpanDiv>
       </MenuDiv>
 
       <DivLogin>
-        <Link href="#">Login</Link>
+        <Link href="/login">Login</Link>
       </DivLogin>
     </DivLogo>
   );

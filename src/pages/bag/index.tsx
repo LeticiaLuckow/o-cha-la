@@ -5,7 +5,6 @@ import axios from 'axios';
 import {
   BagP,
   ButtonCartBag,
-  ButtonCartDelete,
   CartP,
   TableBag,
   TdBag,
@@ -112,8 +111,8 @@ const Bag: NextPage = () => {
               </tr>
             </tbody>
           </table>
+
           <ButtonCartBag>Finalizar compra</ButtonCartBag>
-          <ButtonCartDelete>Delete</ButtonCartDelete>
         </div>
       </div>
     </>

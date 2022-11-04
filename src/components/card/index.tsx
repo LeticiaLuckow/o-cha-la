@@ -49,10 +49,10 @@ const Card = ({ productData, id }: CardType) => {
           <NameProduct>{productData.name}</NameProduct>
         </Link>
 
-        <FakePrice>U${productData.fakePrice.toFixed(2)}</FakePrice>
-        <Price>U${productData.price.toFixed(2)}</Price>
+        <FakePrice>R${productData.fakePrice.toFixed(2)}</FakePrice>
+        <Price>R${productData.price.toFixed(2)}</Price>
 
-        <ButtonCard onClick={addToCard}>Add to cart</ButtonCard>
+        <ButtonCard onClick={addToCard}>Adicionar ao carrinho</ButtonCard>
       </CardDiv>
     </>
   );

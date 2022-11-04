@@ -1,27 +1,49 @@
 import type { NextPage } from 'next';
-import Header from '../../components/header';
-import { DivLogin } from './styles';
+import Link from 'next/link';
+
+import { ButtonLogin, DivLink, DivLogin, InputLogin } from './styles';
 
 const Login: NextPage = () => {
   return (
     <>
-      <div>
-        <Header />
-      </div>
       <div
         style={{
-          padding: '12px 48px',
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        <DivLogin>
-          <label htmlFor="E-mail">E-mail</label>
-          <input placeholder="Digite seu email" type={'email'} />
+        <div
+          style={{
+            fontFamily: 'pacifico',
+            fontSize: '38px',
+            padding: '75px 0 25px 0px',
+          }}
+        >
+          <Link href="/">O chá lá</Link>
+        </div>
 
-          <label htmlFor="Senha">Senha</label>
-          <input placeholder="Digite sua senha" type={'text'} />
-          <button>Entrar</button>
+        <DivLogin>
+          <div>
+            <h2>Olá</h2>
+            <p style={{ color: '#888' }}>
+              Para continuar, digite seu e-mail e sua senha
+            </p>
+          </div>
+
+          <label htmlFor="E-mail">E-mail:</label>
+          <InputLogin type={'email'} />
+
+          <label htmlFor="Senha">Senha:</label>
+          <InputLogin type={'text'} />
+
+          <DivLink>
+            <a href="#">Esqueci minha senha</a>
+          </DivLink>
+          <div>
+            <ButtonLogin>Entrar</ButtonLogin>
+          </div>
         </DivLogin>
       </div>
     </>

@@ -12,7 +12,7 @@ const MainContent = () => {
             width: '100%',
           }}
         >
-          Now taking online orders
+          Agora aceitando pedidos online
         </p>
 
         <p style={{ fontSize: '18px' }}>
@@ -35,7 +35,7 @@ const MainContent = () => {
               textAlign: 'center',
             }}
           >
-            100% organic
+            100% orgânico
           </p>
         </CardDiv>
       </div>
