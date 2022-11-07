@@ -44,17 +44,52 @@ const TdCart = styled.th`
   background: #fafafa;
   font-weight: normal;
 `;
+const ButtonDelete = styled.button`
+  border: none;
+  background: transparent;
+`;
+
+const DivButton = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const ButtonCartBag = styled.button`
   margin: 10px;
   background: #739669fc;
   color: white;
-  padding: 4px;
-  font-size: 18px;
+  padding: 8px;
+  font-size: 22px;
   border-radius: 4px;
   border: 1px solid #dadada;
   font-size: 14px;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
 `;
 
-export { BagP, TableBag, ThBag, TdBag, CartP, ThCart, TdCart, ButtonCartBag };
+const ButtonBuy = styled.button`
+  color: #739669fc;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export {
+  BagP,
+  TableBag,
+  ThBag,
+  TdBag,
+  CartP,
+  ThCart,
+  TdCart,
+  ButtonCartBag,
+  ButtonBuy,
+  DivButton,
+  ButtonDelete,
+};

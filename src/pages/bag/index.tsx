@@ -4,8 +4,11 @@ import Header from '../../components/header';
 import axios from 'axios';
 import {
   BagP,
+  ButtonBuy,
   ButtonCartBag,
+  ButtonDelete,
   CartP,
+  DivButton,
   TableBag,
   TdBag,
   TdCart,
@@ -13,13 +16,36 @@ import {
   ThCart,
 } from './styles';
 import { ProductBag } from '../../types/product';
+import Link from 'next/link';
+import { CloseCircle } from '@styled-icons/evaicons-solid';
 
 const Bag: NextPage = () => {
   const [bag, setBag] = useState<ProductBag[]>([]);
+  const [subTotal, setSubTotal] = useState(0);
+  const [shipping, setShipping] = useState(10);
 
   useEffect(() => {
     setBag(JSON.parse(localStorage.getItem('bag') || '[]') as ProductBag[]);
   }, []);
+
+  const deleteItem = (name: string) => {
+    const result = bag.filter((productBag) => name !== productBag.product.name);
+    setBag(result);
+    localStorage.setItem('bag', JSON.stringify(result));
+  };
+
+  // bag.filter((item) => item.product.name === productData.name).length === 0
+  const CalcSubTotal = () => {
+    const sun = bag.reduce(
+      (total, item) => total + item.quantity * item.product.price,
+      0,
+    );
+    return sun;
+  };
+
+  useEffect(() => {
+    setSubTotal(CalcSubTotal());
+  }, [bag]);
 
   return (
     <>
@@ -39,6 +65,7 @@ const Bag: NextPage = () => {
           <thead style={{ background: '#ededed' }}>
             <tr>
               <ThBag></ThBag>
+              <ThBag></ThBag>
               <ThBag>Produto</ThBag>
               <ThBag>Preço</ThBag>
               <ThBag>Quantidade</ThBag>
@@ -52,13 +79,20 @@ const Bag: NextPage = () => {
                 <tr key={bolinha.product.name + index.toString()}>
                   <>
                     <TdBag>
+                      <ButtonDelete
+                        onClick={() => deleteItem(bolinha.product.name)}
+                      >
+                        <CloseCircle color="#739669fc" width={24} />
+                      </ButtonDelete>
+                    </TdBag>
+                    <TdBag>
                       <img
                         src={bolinha.product.image}
                         style={{ width: '100px' }}
                       />
                     </TdBag>
                     <TdBag>{bolinha.product.name}</TdBag>
-                    <TdBag>{bolinha.product.price.toFixed(2)}</TdBag>
+                    <TdBag>R$ {bolinha.product.price.toFixed(2)}</TdBag>
                     <TdBag>
                       <div
                         style={{ display: 'flex', justifyContent: 'center' }}
@@ -77,7 +111,9 @@ const Bag: NextPage = () => {
                         />
                       </div>
                     </TdBag>
-                    <TdBag>{}</TdBag>
+                    <TdBag>
+                      R$ {(bolinha.product.price * bolinha.quantity).toFixed(2)}
+                    </TdBag>
                   </>
                 </tr>
               ))}
@@ -99,20 +135,28 @@ const Bag: NextPage = () => {
             <tbody>
               <tr>
                 <ThCart>Subtotal</ThCart>
-                <TdCart style={{ width: '100%' }}>edfbgftnhxgymj</TdCart>
+                <TdCart style={{ width: '100%' }}>
+                  R$ {subTotal.toFixed(2)}
+                </TdCart>
               </tr>
               <tr>
                 <ThCart>Entrega</ThCart>
-                <TdCart>efsf</TdCart>
+                <TdCart>R$ {shipping.toFixed(2)}</TdCart>
               </tr>
               <tr>
                 <ThCart>Total</ThCart>
-                <TdCart>efsf</TdCart>
+                <TdCart>R$ {(subTotal + shipping).toFixed(2)}</TdCart>
               </tr>
             </tbody>
           </table>
 
-          <ButtonCartBag>Finalizar compra</ButtonCartBag>
+          <DivButton>
+            <ButtonCartBag>Finalizar compra</ButtonCartBag>
+
+            <ButtonBuy>
+              <Link href="/store">Continuar comprando</Link>
+            </ButtonBuy>
+          </DivButton>
         </div>
       </div>
     </>
