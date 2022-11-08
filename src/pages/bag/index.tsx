@@ -151,7 +151,9 @@ const Bag: NextPage = () => {
           </table>
 
           <DivButton>
-            <ButtonCartBag>Finalizar compra</ButtonCartBag>
+            <ButtonCartBag>
+              <Link href="/login">Finalizar compra</Link>
+            </ButtonCartBag>
 
             <ButtonBuy>
               <Link href="/store">Continuar comprando</Link>

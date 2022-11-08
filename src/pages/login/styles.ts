@@ -27,6 +27,16 @@ const DivLink = styled.div`
   margin-top: 4px;
   text-decoration: underline;
 `;
+
+const ButtonReturn = styled.button`
+  display: flex;
+  margin: 12px;
+  color: #51674bfc;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+`;
 const ButtonLogin = styled.button`
   margin-top: 8px;
   border: 1px solid #dadada;
@@ -38,4 +48,4 @@ const ButtonLogin = styled.button`
   cursor: pointer;
 `;
 
-export { DivLogin, ButtonLogin, InputLogin, DivLink };
+export { DivLogin, ButtonLogin, InputLogin, DivLink, ButtonReturn };

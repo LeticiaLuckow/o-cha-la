@@ -1,11 +1,21 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 
-import { ButtonLogin, DivLink, DivLogin, InputLogin } from './styles';
+import {
+  ButtonLogin,
+  ButtonReturn,
+  DivLink,
+  DivLogin,
+  InputLogin,
+} from './styles';
 
 const Login: NextPage = () => {
   return (
     <>
+      <ButtonReturn>
+        <Link href="/bag">voltar</Link>
+      </ButtonReturn>
+
       <div
         style={{
           display: 'flex',
