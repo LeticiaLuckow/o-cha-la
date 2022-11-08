@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import axios from 'axios';
 import {
-  BagP,
   ButtonBuy,
   ButtonCartBag,
   ButtonDelete,
   CartP,
   DivButton,
+  PageTitles,
   TableBag,
   TdBag,
   TdCart,
@@ -52,7 +52,7 @@ const Bag: NextPage = () => {
       <div>
         <Header />
       </div>
-      <BagP>Carrinho</BagP>
+      <PageTitles>Carrinho</PageTitles>
 
       <div
         style={{
@@ -152,7 +152,7 @@ const Bag: NextPage = () => {
 
           <DivButton>
             <ButtonCartBag>
-              <Link href="/login">Finalizar compra</Link>
+              <Link href="/checkout">Finalizar compra</Link>
             </ButtonCartBag>
 
             <ButtonBuy>

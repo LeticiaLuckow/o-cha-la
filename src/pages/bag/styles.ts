@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BagP = styled.p`
+const PageTitles = styled.p`
   font-size: 32px;
   text-align: center;
   margin: 0;
@@ -59,7 +59,6 @@ const ButtonCartBag = styled.button`
   background: #739669fc;
   color: white;
   padding: 8px;
-  font-size: 22px;
   border-radius: 4px;
   border: 1px solid #dadada;
   font-size: 14px;
@@ -81,7 +80,7 @@ const ButtonBuy = styled.button`
 `;
 
 export {
-  BagP,
+  PageTitles,
   TableBag,
   ThBag,
   TdBag,
