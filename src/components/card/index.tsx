@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 import { Product, ProductBag } from '../../types/product';
+import BagToast from '../bagToast';
 import {
   ButtonCard,
   CardDiv,
@@ -16,8 +18,11 @@ type CardType = {
 };
 
 const Card = ({ productData, id }: CardType) => {
+  const [open, setOpen] = useState<boolean>(false);
+
   const addToCard = () => {
     // pega a bag do localstorage, salva numa variavel bag
+
     const bag = JSON.parse(localStorage.getItem('bag') || '[]') as ProductBag[];
 
     //aqui ele cria um objeto chamado newItem com a qtd e o product(productData que é um parametro)
@@ -34,7 +39,7 @@ const Card = ({ productData, id }: CardType) => {
 
       // armazena os valores no localstorege (localStorage.setItem) e isso transforma o array/obj em stringe (JSON.stringify(bag))
       localStorage.setItem('bag', JSON.stringify(bag));
-      alert('produto adicionado ao carrinho');
+      setOpen(true);
     } else {
       alert('produto ja adicionado ao carrinho');
     }
@@ -54,6 +59,7 @@ const Card = ({ productData, id }: CardType) => {
 
         <ButtonCard onClick={addToCard}>Adicionar ao carrinho</ButtonCard>
       </CardDiv>
+      <BagToast open={open} setOpen={setOpen} />
     </>
   );
 };
