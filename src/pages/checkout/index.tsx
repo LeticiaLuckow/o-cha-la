@@ -1,17 +1,43 @@
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import { ProductBag } from '../../types/product';
 import { PageTitles, TdCart, ThCart } from '../bag/styles';
-import { ButtoCalculate, InputCep, PageSubTitles } from './styles';
+import { useRouter } from 'next/router';
+import {
+  ButtoCalculate,
+  InputAddress,
+  InputCep,
+  LabelInfo,
+  PageSubTitles,
+} from './styles';
+import { ButtonReturn } from '../login/styles';
+import Link from 'next/link';
 
 const Checkout: NextPage = () => {
   const [bag, setBag] = useState<ProductBag[]>([]);
   const [subTotal, setSubTotal] = useState(0);
   const [shipping, setShipping] = useState(10);
+  const [address, setAddress] = useState({
+    cep: '',
+    endereco: '',
+    numero: '',
+    complemento: '',
+    cidade: '',
+    estado: '',
+  });
+  const router = useRouter();
 
+  const submitForm = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    console.log(address);
+    localStorage.setItem('address', JSON.stringify(address));
+  };
   useEffect(() => {
-    setBag(JSON.parse(localStorage.getItem('bag') || '[]') as ProductBag[]);
+    const localBag = JSON.parse(localStorage.getItem('bag') || '[]');
+
+    localBag.length === 0 && router.push('/bag');
+    setBag(localBag);
   }, []);
   // bag.filter((item) => item.product.name === productData.name).length === 0
   const CalcSubTotal = () => {
@@ -29,6 +55,9 @@ const Checkout: NextPage = () => {
   return (
     <>
       <Header />
+      <ButtonReturn>
+        <Link href="/bag">voltar</Link>
+      </ButtonReturn>
       <PageTitles>Finalização de compra</PageTitles>
       <div
         style={{
@@ -37,16 +66,88 @@ const Checkout: NextPage = () => {
           paddingTop: '22px',
         }}
       >
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <PageSubTitles>Entrega</PageSubTitles>
-          <InputCep
-            type={'number'}
-            placeholder={'digite seu cep'}
-            maxLength={9}
-            style={{ width: '100%', padding: '6px', marginTop: '20px' }}
-          />
-          <ButtoCalculate>calcular</ButtoCalculate>
-        </div>
+        <form onSubmit={submitForm}>
+          <div
+            style={{ display: 'flex', flexDirection: 'column', width: '400px' }}
+          >
+            <PageSubTitles>Entrega</PageSubTitles>
+
+            <LabelInfo>CEP</LabelInfo>
+            <InputCep
+              type={'number'}
+              placeholder={'Digite seu cep'}
+              maxLength={9}
+              value={address.cep}
+              onChange={(e) => {
+                setAddress({
+                  ...address,
+                  cep: e.target.value,
+                });
+              }}
+            />
+
+            <LabelInfo>Endereço</LabelInfo>
+            <InputAddress
+              type={'text'}
+              placeholder={'Digite seu endereço'}
+              value={address.endereco}
+              onChange={(e) => {
+                setAddress({
+                  ...address,
+                  endereco: e.target.value,
+                });
+              }}
+            />
+
+            <LabelInfo>Numero</LabelInfo>
+            <InputCep
+              type={'number'}
+              value={address.numero}
+              onChange={(e) => {
+                setAddress({
+                  ...address,
+                  numero: e.target.value,
+                });
+              }}
+            />
+
+            <LabelInfo>Complemento</LabelInfo>
+            <InputAddress
+              placeholder={'Casa, apartamento, sala, etc.'}
+              value={address.complemento}
+              onChange={(e) => {
+                setAddress({
+                  ...address,
+                  complemento: e.target.value,
+                });
+              }}
+            />
+
+            <LabelInfo>Cidade</LabelInfo>
+            <InputAddress
+              value={address.cidade}
+              onChange={(e) => {
+                setAddress({
+                  ...address,
+                  cidade: e.target.value,
+                });
+              }}
+            />
+
+            <LabelInfo>Estado</LabelInfo>
+            <InputAddress
+              value={address.estado}
+              onChange={(e) => {
+                setAddress({
+                  ...address,
+                  estado: e.target.value,
+                });
+              }}
+            />
+
+            <ButtoCalculate type="submit">calcular</ButtoCalculate>
+          </div>
+        </form>
 
         <div style={{ width: '20%' }}>
           <PageSubTitles>Seu pedido</PageSubTitles>

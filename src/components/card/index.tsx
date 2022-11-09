@@ -34,9 +34,9 @@ const Card = ({ productData, id }: CardType) => {
 
       // armazena os valores no localstorege (localStorage.setItem) e isso transforma o array/obj em stringe (JSON.stringify(bag))
       localStorage.setItem('bag', JSON.stringify(bag));
-      alert('item adicionado ao carrinho');
+      alert('produto adicionado ao carrinho');
     } else {
-      alert('produto ja ta no carrinho');
+      alert('produto ja adicionado ao carrinho');
     }
   };
 

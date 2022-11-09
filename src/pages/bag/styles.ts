@@ -47,6 +47,7 @@ const TdCart = styled.th`
 const ButtonDelete = styled.button`
   border: none;
   background: transparent;
+  cursor: pointer;
 `;
 
 const DivButton = styled.div`
@@ -65,6 +66,11 @@ const ButtonCartBag = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
+
+  &:disabled {
+    background: grey;
+    cursor: default;
+  }
 `;
 
 const ButtonBuy = styled.button`

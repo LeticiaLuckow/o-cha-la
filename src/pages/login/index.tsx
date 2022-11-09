@@ -13,7 +13,7 @@ const Login: NextPage = () => {
   return (
     <>
       <ButtonReturn>
-        <Link href="/bag">voltar</Link>
+        <Link href="/checkout">voltar</Link>
       </ButtonReturn>
 
       <div

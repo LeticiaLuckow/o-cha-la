@@ -15,6 +15,15 @@ const InputCep = styled.input`
     -webkit-appearance: none;
     margin: 0;
   }
+  padding: 6px;
+`;
+
+const LabelInfo = styled.label`
+  margin-top: 10px;
+`;
+
+const InputAddress = styled.input`
+  padding: 6px;
 `;
 
 const ButtoCalculate = styled.button`
@@ -28,4 +37,4 @@ const ButtoCalculate = styled.button`
   cursor: pointer;
   text-transform: uppercase;
 `;
-export { PageSubTitles, InputCep, ButtoCalculate };
+export { PageSubTitles, InputCep, ButtoCalculate, LabelInfo, InputAddress };

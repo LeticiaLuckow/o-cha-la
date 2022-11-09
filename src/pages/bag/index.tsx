@@ -151,7 +151,7 @@ const Bag: NextPage = () => {
           </table>
 
           <DivButton>
-            <ButtonCartBag>
+            <ButtonCartBag disabled={bag.length === 0}>
               <Link href="/checkout">Finalizar compra</Link>
             </ButtonCartBag>
 
