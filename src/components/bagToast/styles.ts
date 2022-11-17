@@ -29,7 +29,6 @@ const Viewport = styled(Toast.Viewport)`
   position: fixed;
   bottom: 0;
   right: 12px;
-  border: 1px solid black;
 `;
 
 const Root = styled(Toast.Root)`

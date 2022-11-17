@@ -2,10 +2,11 @@ import type { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import { ProductBag } from '../../types/product';
-import { PageTitles, TdCart, ThCart } from '../bag/styles';
+import { ButtonCartBag, PageTitles, TdCart, ThCart } from '../bag/styles';
 import { useRouter } from 'next/router';
 import {
   ButtoCalculate,
+  ButtonCheckout,
   InputAddress,
   InputCep,
   LabelInfo,
@@ -169,6 +170,11 @@ const Checkout: NextPage = () => {
               </tr>
             </tbody>
           </table>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <ButtonCheckout>
+              <Link href="/payment">Finalizar compra</Link>
+            </ButtonCheckout>
+          </div>
         </div>
       </div>
     </>

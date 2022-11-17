@@ -10,7 +10,7 @@ const BagToast = ({ open, setOpen }: BagToastType) => {
   return (
     <>
       <Toast.Provider swipeDirection="right">
-        <Root open={true} onOpenChange={setOpen}>
+        <Root open={open} onOpenChange={setOpen}>
           <Toast.ToastDescription asChild>
             <div>produto adicionado ao carrinho</div>
           </Toast.ToastDescription>
