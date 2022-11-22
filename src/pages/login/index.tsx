@@ -52,7 +52,9 @@ const Login: NextPage = () => {
             <a href="#">Esqueci minha senha</a>
           </DivLink>
           <div>
-            <ButtonLogin>Entrar</ButtonLogin>
+            <ButtonLogin>
+              <Link href="/checkout">Entrar</Link>
+            </ButtonLogin>
           </div>
         </DivLogin>
       </div>

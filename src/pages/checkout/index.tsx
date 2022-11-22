@@ -14,6 +14,7 @@ import {
 } from './styles';
 import { ButtonReturn } from '../login/styles';
 import Link from 'next/link';
+import { ArrowForward } from '@styled-icons/evaicons-solid';
 
 const Checkout: NextPage = () => {
   const [bag, setBag] = useState<ProductBag[]>([]);
@@ -170,10 +171,34 @@ const Checkout: NextPage = () => {
               </tr>
             </tbody>
           </table>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <ButtonCheckout>
-              <Link href="/payment">Finalizar compra</Link>
-            </ButtonCheckout>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginTop: '12px',
+            }}
+          >
+            <button
+              style={{
+                border: 'none',
+                background: 'transparent',
+                textTransform: 'uppercase',
+                fontWeight: 'bold',
+                color: '#5e5e5e',
+                fontSize: '16px',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+
+                  alignItems: 'center',
+                }}
+              >
+                <Link href="/payment">Ir para o pagamento</Link>
+                <ArrowForward color="#739669fc" width={40} />
+              </div>
+            </button>
           </div>
         </div>
       </div>
