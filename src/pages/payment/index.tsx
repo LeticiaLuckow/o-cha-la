@@ -20,13 +20,10 @@ const Payment: NextPage = () => {
     cvv: '',
   });
 
-  const [requestMade, setRequestMade] = useState('');
-
   const router = useRouter();
 
   const submitForm = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(payment);
     localStorage.setItem('payment', JSON.stringify(payment));
   };
 
@@ -48,11 +45,6 @@ const Payment: NextPage = () => {
   useEffect(() => {
     setSubTotal(CalcSubTotal());
   }, [bag]);
-
-  const orderPlaced = () => {
-    setRequestMade('');
-    alert('Pedido realizado');
-  };
 
   return (
     <>
@@ -187,8 +179,8 @@ const Payment: NextPage = () => {
               </div>
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <ButtonPayment type="submit" onClick={orderPlaced}>
-                finalizar pedido
+              <ButtonPayment type="submit">
+                <Link href="/orderPlaced"> finalizar pedido</Link>
               </ButtonPayment>
             </div>
           </form>

@@ -1,5 +1,7 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 import {
   ButtonLogin,
@@ -10,10 +12,20 @@ import {
 } from './styles';
 
 const Login: NextPage = () => {
+  const router = useRouter();
+
+  const { to } = router.query;
+  const [infoLogin, setInfoLogin] = useState({ email: '', senha: '' });
+
+  const submitLogin = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    localStorage.setItem('infoLogin', JSON.stringify(infoLogin));
+    router.push(to?.toString() || '/');
+  };
   return (
     <>
       <ButtonReturn>
-        <Link href="/checkout">voltar</Link>
+        <Link href="/bag">voltar</Link>
       </ButtonReturn>
 
       <div
@@ -43,18 +55,34 @@ const Login: NextPage = () => {
           </div>
 
           <label htmlFor="E-mail">E-mail:</label>
-          <InputLogin type={'email'} />
+          <InputLogin
+            type={'email'}
+            value={infoLogin.email}
+            onChange={(e) => {
+              setInfoLogin({
+                ...infoLogin,
+                email: e.target.value,
+              });
+            }}
+          />
 
           <label htmlFor="Senha">Senha:</label>
-          <InputLogin type={'text'} />
+          <InputLogin
+            type={'text'}
+            value={infoLogin.senha}
+            onChange={(e) => {
+              setInfoLogin({
+                ...infoLogin,
+                senha: e.target.value,
+              });
+            }}
+          />
 
           <DivLink>
             <a href="#">Esqueci minha senha</a>
           </DivLink>
           <div>
-            <ButtonLogin>
-              <Link href="/checkout">Entrar</Link>
-            </ButtonLogin>
+            <ButtonLogin onClick={submitLogin}>Entrar</ButtonLogin>
           </div>
         </DivLogin>
       </div>

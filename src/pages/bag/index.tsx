@@ -18,12 +18,23 @@ import {
 import { ProductBag } from '../../types/product';
 import Link from 'next/link';
 import { CloseCircle } from '@styled-icons/evaicons-solid';
+import { useRouter } from 'next/router';
 
 const Bag: NextPage = () => {
   const [bag, setBag] = useState<ProductBag[]>([]);
   const [subTotal, setSubTotal] = useState(0);
   const [shipping, setShipping] = useState(10);
 
+  const router = useRouter();
+
+  const buy = () => {
+    const login = localStorage.getItem('infoLogin');
+    if (!!login) {
+      router.push('/checkout');
+    } else {
+      router.push('/login?to=checkout');
+    }
+  };
   useEffect(() => {
     setBag(JSON.parse(localStorage.getItem('bag') || '[]') as ProductBag[]);
   }, []);
@@ -151,8 +162,8 @@ const Bag: NextPage = () => {
           </table>
 
           <DivButton>
-            <ButtonCartBag disabled={bag.length === 0}>
-              <Link href="/login">Finalizar compra</Link>
+            <ButtonCartBag disabled={bag.length === 0} onClick={buy}>
+              Finalizar compra
             </ButtonCartBag>
 
             <ButtonBuy>
