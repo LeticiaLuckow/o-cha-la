@@ -59,7 +59,7 @@ const Payment: NextPage = () => {
         style={{
           display: 'flex',
           justifyContent: 'space-around',
-          paddingTop: '22px',
+          padding: '22px 0 92px 0 ',
         }}
       >
         <div

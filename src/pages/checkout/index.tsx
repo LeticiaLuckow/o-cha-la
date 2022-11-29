@@ -65,7 +65,7 @@ const Checkout: NextPage = () => {
         style={{
           display: 'flex',
           justifyContent: 'space-around',
-          paddingTop: '22px',
+          padding: '22px 0 92px 0 ',
         }}
       >
         <form onSubmit={submitForm}>

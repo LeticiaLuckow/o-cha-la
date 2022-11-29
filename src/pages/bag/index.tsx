@@ -137,10 +137,10 @@ const Bag: NextPage = () => {
           display: 'flex',
           justifyContent: 'flex-end',
           width: '100%',
-          paddingTop: '82px',
+          padding: '92px 0 92px 0',
         }}
       >
-        <div style={{ width: '40%', marginRight: '126px' }}>
+        <div style={{ width: '40%', marginRight: '148px' }}>
           <CartP>Total no carrinho</CartP>
           <table style={{ width: '100%', paddingTop: '20px' }}>
             <tbody>
