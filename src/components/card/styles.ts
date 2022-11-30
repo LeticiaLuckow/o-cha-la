@@ -13,6 +13,7 @@ const CardDiv = styled.div`
 
 const CardImage = styled.img`
   width: 100%;
+  height: 200px;
 `;
 
 const NameProduct = styled.p`

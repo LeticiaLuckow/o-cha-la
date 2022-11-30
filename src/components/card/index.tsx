@@ -56,8 +56,9 @@ const Card = ({ productData, id }: CardType) => {
 
         <FakePrice>R${productData.fakePrice.toFixed(2)}</FakePrice>
         <Price>R${productData.price.toFixed(2)}</Price>
-
-        <ButtonCard onClick={addToCard}>Adicionar ao carrinho</ButtonCard>
+        <div>
+          <ButtonCard onClick={addToCard}>Adicionar ao carrinho</ButtonCard>
+        </div>
       </CardDiv>
       <BagToast open={open} setOpen={setOpen} />
     </>

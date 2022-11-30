@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const CardStore = styled.div`
   display: flex;
   font-family: 'Uchen', serif;
+  flex-wrap: wrap;
   justify-content: center;
 `;
 
