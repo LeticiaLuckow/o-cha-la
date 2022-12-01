@@ -7,6 +7,7 @@ import {
   ButtonCartBag,
   ButtonDelete,
   CartP,
+  ClearCartButton,
   DivButton,
   PageTitles,
   TableBag,
@@ -57,6 +58,11 @@ const Bag: NextPage = () => {
   useEffect(() => {
     setSubTotal(CalcSubTotal());
   }, [bag]);
+
+  const clearCart = () => {
+    localStorage.removeItem('bag');
+    setBag([]);
+  };
 
   return (
     <>
@@ -130,6 +136,10 @@ const Bag: NextPage = () => {
               ))}
           </tbody>
         </TableBag>
+      </div>
+
+      <div>
+        <ClearCartButton onClick={clearCart}>Limpar carrinho</ClearCartButton>
       </div>
 
       <div

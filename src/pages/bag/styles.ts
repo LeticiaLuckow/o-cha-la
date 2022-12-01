@@ -85,6 +85,18 @@ const ButtonBuy = styled.button`
   }
 `;
 
+const ClearCartButton = styled.button`
+  background: #739669fc;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #dadada;
+  font-size: 14px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+`;
+
 export {
   PageTitles,
   TableBag,
@@ -97,4 +109,5 @@ export {
   ButtonBuy,
   DivButton,
   ButtonDelete,
+  ClearCartButton,
 };

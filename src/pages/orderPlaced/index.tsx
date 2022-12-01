@@ -6,6 +6,9 @@ import { ButtonReturn } from '../login/styles';
 import Link from 'next/link';
 
 const orderPlaced: NextPage = () => {
+  const itemsRemove = () => {
+    localStorage.removeItem('bag');
+  };
   return (
     <>
       <div>
@@ -24,7 +27,7 @@ const orderPlaced: NextPage = () => {
       >
         <CheckmarkCircle2 width={'250px'} color={'green'} />
         <OrderP>Pedido realizado com sucesso</OrderP>
-        <ButtonNewRequest>
+        <ButtonNewRequest onClick={itemsRemove}>
           <Link href="/store">Realizar novo pedido</Link>
         </ButtonNewRequest>
       </div>
