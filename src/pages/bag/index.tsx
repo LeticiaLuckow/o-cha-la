@@ -138,7 +138,7 @@ const Bag: NextPage = () => {
         </TableBag>
       </div>
 
-      <div>
+      <div style={{ marginLeft: '150px', marginTop: '20px' }}>
         <ClearCartButton onClick={clearCart}>Limpar carrinho</ClearCartButton>
       </div>
 
