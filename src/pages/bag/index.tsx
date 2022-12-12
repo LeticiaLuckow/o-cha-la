@@ -11,6 +11,7 @@ import {
   DivButton,
   PageTitles,
   TableBag,
+  TableDiv,
   TdBag,
   TdCart,
   ThBag,
@@ -71,13 +72,7 @@ const Bag: NextPage = () => {
       </div>
       <PageTitles>Carrinho</PageTitles>
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          paddingTop: '80px',
-        }}
-      >
+      <TableDiv>
         <TableBag>
           <thead style={{ background: '#ededed' }}>
             <tr>
@@ -136,7 +131,7 @@ const Bag: NextPage = () => {
               ))}
           </tbody>
         </TableBag>
-      </div>
+      </TableDiv>
 
       <div style={{ marginLeft: '150px', marginTop: '20px' }}>
         <ClearCartButton onClick={clearCart}>Limpar carrinho</ClearCartButton>

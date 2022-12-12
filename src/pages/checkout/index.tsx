@@ -2,11 +2,13 @@ import type { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import { ProductBag } from '../../types/product';
-import { ButtonCartBag, PageTitles, TdCart, ThCart } from '../bag/styles';
+import { PageTitles, TdCart, ThCart } from '../bag/styles';
 import { useRouter } from 'next/router';
 import {
-  ButtoCalculate,
-  ButtonCheckout,
+  ButtonCalculate,
+  DivCheckout,
+  DivForm,
+  DivTable,
   InputAddress,
   InputCep,
   LabelInfo,
@@ -57,21 +59,16 @@ const Checkout: NextPage = () => {
   return (
     <>
       <Header />
+
       <ButtonReturn>
         <Link href="/bag">voltar</Link>
       </ButtonReturn>
+
       <PageTitles>Finalização de compra</PageTitles>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          padding: '22px 0 92px 0 ',
-        }}
-      >
+
+      <DivCheckout>
         <form onSubmit={submitForm}>
-          <div
-            style={{ display: 'flex', flexDirection: 'column', width: '400px' }}
-          >
+          <DivForm>
             <PageSubTitles>Entrega</PageSubTitles>
 
             <LabelInfo>CEP</LabelInfo>
@@ -147,11 +144,11 @@ const Checkout: NextPage = () => {
               }}
             />
 
-            <ButtoCalculate type="submit">calcular</ButtoCalculate>
-          </div>
+            <ButtonCalculate type="submit">calcular</ButtonCalculate>
+          </DivForm>
         </form>
 
-        <div style={{ width: '20%' }}>
+        <DivTable>
           <PageSubTitles>Seu pedido</PageSubTitles>
           <table style={{ width: '100%', paddingTop: '20px' }}>
             <tbody>
@@ -200,8 +197,8 @@ const Checkout: NextPage = () => {
               </div>
             </button>
           </div>
-        </div>
-      </div>
+        </DivTable>
+      </DivCheckout>
     </>
   );
 };

@@ -6,6 +6,9 @@ const DivTitle = styled.div`
   cursor: pointer;
   font-family: Pacifico;
   flex: 1;
+  @media screen and (max-width: 720px) {
+    font-size: 24px;
+  }
 `;
 const DivLogo = styled.div`
   display: flex;
@@ -20,6 +23,10 @@ const DivLogo = styled.div`
     rgba(161, 196, 136, 0.9923319669664741) 50%,
     rgba(240, 230, 239, 1) 50%
   );
+
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+  }
 `;
 
 const DivLogin = styled.div`
@@ -45,4 +52,5 @@ const SpanDiv = styled.span`
   position: relative;
   font-size: 22px;
 `;
+
 export { DivTitle, SpanDiv, DivLogin, DivLogo, MenuDiv };

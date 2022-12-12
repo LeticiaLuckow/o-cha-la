@@ -1,5 +1,38 @@
 import styled from 'styled-components';
 
+const DivPayment = styled.div`
+  display: flex;
+  justify-content: space-around;
+  padding: 22px 0 92px 0;
+
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const DivPayOne = styled.div`
+  width: 20%;
+  border: 1px solid #dadada;
+  borderradius: 4px;
+
+  @media screen and (max-width: 720px) {
+    width: 64%;
+  }
+`;
+
+const DivPayTwo = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dadada;
+  borderradius: 4px;
+  alignitems: center;
+
+  @media screen and (max-width: 720px) {
+    margin-top: 24px;
+    flex-direction: column;
+  }
+`;
 const InputTypeNumber = styled.input`
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
@@ -25,4 +58,4 @@ const ButtonPayment = styled.button`
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 `;
-export { InputTypeNumber, ButtonPayment };
+export { DivPayment, DivPayOne, DivPayTwo, InputTypeNumber, ButtonPayment };

@@ -8,12 +8,23 @@ const PageTitles = styled.p`
   font-family: uchen;
 `;
 
+const TableDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+  @media screen and (min-width: 320px) {
+  }
+`;
+
 const TableBag = styled.table`
   font-size: 18px;
   border: 1px solid transparent;
   width: 80%;
   border-collapse: collapse;
   box-sizing: border-box;
+  @media screen and (max-width: 320px) {
+    flex-direction: column;
+  }
 `;
 
 const ThBag = styled.th`
@@ -99,6 +110,7 @@ const ClearCartButton = styled.button`
 
 export {
   PageTitles,
+  TableDiv,
   TableBag,
   ThBag,
   TdBag,

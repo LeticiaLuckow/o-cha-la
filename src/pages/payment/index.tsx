@@ -7,7 +7,13 @@ import { ProductBag } from '../../types/product';
 import { PageTitles, TdCart, ThCart } from '../bag/styles';
 import { ButtonCheckout, LabelInfo, PageSubTitles } from '../checkout/styles';
 import { ButtonReturn } from '../login/styles';
-import { ButtonPayment, InputTypeNumber } from './styles';
+import {
+  ButtonPayment,
+  DivPayTwo,
+  DivPayment,
+  InputTypeNumber,
+  DivPayOne,
+} from './styles';
 
 const Payment: NextPage = () => {
   const [bag, setBag] = useState<ProductBag[]>([]);
@@ -55,20 +61,8 @@ const Payment: NextPage = () => {
 
       <PageTitles>Forma de pagamento</PageTitles>
 
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          padding: '22px 0 92px 0 ',
-        }}
-      >
-        <div
-          style={{
-            width: '20%',
-            border: '1px solid #dadada',
-            borderRadius: '4px',
-          }}
-        >
+      <DivPayment>
+        <DivPayOne>
           <PageSubTitles>Seu pedido</PageSubTitles>
           <table style={{ padding: '20px' }}>
             <tbody>
@@ -88,16 +82,9 @@ const Payment: NextPage = () => {
               </tr>
             </tbody>
           </table>
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            border: '1px solid #dadada',
-            borderRadius: '4px',
-            alignItems: 'center',
-          }}
-        >
+        </DivPayOne>
+
+        <DivPayTwo>
           <PageSubTitles>Dados do Cartão</PageSubTitles>
           <form
             style={{
@@ -184,8 +171,8 @@ const Payment: NextPage = () => {
               </ButtonPayment>
             </div>
           </form>
-        </div>
-      </div>
+        </DivPayTwo>
+      </DivPayment>
     </>
   );
 };

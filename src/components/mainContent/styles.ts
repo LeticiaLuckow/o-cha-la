@@ -49,6 +49,9 @@ const CardDiv = styled.div`
   width: 142px;
   border-radius: 15px;
   padding: 14px;
+  @media screen and (min-width: 320px) {
+    margin-top: 12px;
+  }
 `;
 
 export { DivNav, DescriptionDiv, ImageDiv, MaxImage, CardDiv };

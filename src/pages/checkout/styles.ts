@@ -9,6 +9,34 @@ const PageSubTitles = styled.p`
   display: flex;
 `;
 
+const DivCheckout = styled.div`
+  display: flex;
+  justify-content: space-around;
+  padding: 22px 0 92px 0;
+
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+const DivTable = styled.div`
+  width: 400px;
+
+  @media screen and (max-width: 720px) {
+    width: 64%;
+  }
+`;
+
+const DivForm = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+
+  @media screen and (max-width: 720px) {
+    width: 300px;
+  }
+`;
+
 const InputCep = styled.input`
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
@@ -29,7 +57,7 @@ const InputAddress = styled.input`
   border: 1px solid #dadada;
 `;
 
-const ButtoCalculate = styled.button`
+const ButtonCalculate = styled.button`
   margin: 10px;
   background: #739669fc;
   color: white;
@@ -67,8 +95,11 @@ const ButtonCheckout = styled.button`
 
 export {
   PageSubTitles,
+  DivCheckout,
+  DivTable,
+  DivForm,
   InputCep,
-  ButtoCalculate,
+  ButtonCalculate,
   LabelInfo,
   InputAddress,
   ButtonCheckout,
