@@ -68,7 +68,7 @@ const Payment: NextPage = () => {
             <tbody>
               <tr>
                 <ThCart>Subtotal</ThCart>
-                <TdCart style={{ width: '100%' }}>
+                <TdCart style={{ width: '308px' }}>
                   R$ {subTotal.toFixed(2)}
                 </TdCart>
               </tr>

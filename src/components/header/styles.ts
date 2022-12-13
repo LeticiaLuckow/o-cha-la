@@ -6,7 +6,7 @@ const DivTitle = styled.div`
   cursor: pointer;
   font-family: Pacifico;
   flex: 1;
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 768px) {
     font-size: 24px;
   }
 `;
@@ -24,7 +24,7 @@ const DivLogo = styled.div`
     rgba(240, 230, 239, 1) 50%
   );
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
   }
 `;

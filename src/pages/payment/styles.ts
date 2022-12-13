@@ -5,19 +5,19 @@ const DivPayment = styled.div`
   justify-content: space-around;
   padding: 22px 0 92px 0;
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;
   }
 `;
 
 const DivPayOne = styled.div`
-  width: 20%;
+  width: 308px;
   border: 1px solid #dadada;
   borderradius: 4px;
 
-  @media screen and (max-width: 720px) {
-    width: 64%;
+  @media screen and (max-width: 768px) {
+    width: 308px;
   }
 `;
 
@@ -28,7 +28,7 @@ const DivPayTwo = styled.div`
   borderradius: 4px;
   alignitems: center;
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 768px) {
     margin-top: 24px;
     flex-direction: column;
   }

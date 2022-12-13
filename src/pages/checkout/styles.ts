@@ -14,7 +14,7 @@ const DivCheckout = styled.div`
   justify-content: space-around;
   padding: 22px 0 92px 0;
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 768px) {
     flex-direction: column;
     align-items: center;
   }
@@ -22,8 +22,8 @@ const DivCheckout = styled.div`
 const DivTable = styled.div`
   width: 400px;
 
-  @media screen and (max-width: 720px) {
-    width: 64%;
+  @media screen and (max-width: 768px) {
+    width: 300px;
   }
 `;
 
@@ -32,7 +32,7 @@ const DivForm = styled.div`
   flex-direction: column;
   width: 400px;
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 768px) {
     width: 300px;
   }
 `;

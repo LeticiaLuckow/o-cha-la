@@ -12,8 +12,6 @@ const TableDiv = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 80px;
-  @media screen and (min-width: 320px) {
-  }
 `;
 
 const TableBag = styled.table`
@@ -22,8 +20,7 @@ const TableBag = styled.table`
   width: 80%;
   border-collapse: collapse;
   box-sizing: border-box;
-  @media screen and (max-width: 320px) {
-    flex-direction: column;
+ 
   }
 `;
 
