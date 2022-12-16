@@ -42,6 +42,18 @@ const CartP = styled.p`
   padding-top: 40px;
   font-family: uchen;
 `;
+
+const CartDiv = styled.div`
+  width: 40%;
+  margin-right: 148px;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-right: 0;
+    padding: 36px;
+  }
+`;
+
 const ThCart = styled.th`
   background: #ededed;
   color: #6d6d6d;
@@ -105,6 +117,15 @@ const ClearCartButton = styled.button`
   font-weight: bold;
 `;
 
+const FlexDivMobile = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const PInfo = styled.p`
+  color: #6d6d6d;
+`;
+
 export {
   PageTitles,
   TableDiv,
@@ -112,6 +133,7 @@ export {
   ThBag,
   TdBag,
   CartP,
+  CartDiv,
   ThCart,
   TdCart,
   ButtonCartBag,
@@ -119,4 +141,6 @@ export {
   DivButton,
   ButtonDelete,
   ClearCartButton,
+  FlexDivMobile,
+  PInfo,
 };

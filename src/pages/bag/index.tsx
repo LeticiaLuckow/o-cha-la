@@ -6,10 +6,13 @@ import {
   ButtonBuy,
   ButtonCartBag,
   ButtonDelete,
+  CartDiv,
   CartP,
   ClearCartButton,
   DivButton,
+  FlexDivMobile,
   PageTitles,
+  PInfo,
   TableBag,
   TableDiv,
   TdBag,
@@ -21,8 +24,11 @@ import { ProductBag } from '../../types/product';
 import Link from 'next/link';
 import { CloseCircle } from '@styled-icons/evaicons-solid';
 import { useRouter } from 'next/router';
+import { useMediaQuery } from '../../utils/useMediaQuery';
 
 const Bag: NextPage = () => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   const [bag, setBag] = useState<ProductBag[]>([]);
   const [subTotal, setSubTotal] = useState(0);
   const [shipping, setShipping] = useState(10);
@@ -74,44 +80,66 @@ const Bag: NextPage = () => {
 
       <TableDiv>
         <TableBag>
-          <thead style={{ background: '#ededed' }}>
-            <tr>
-              <ThBag></ThBag>
-              <ThBag></ThBag>
-              <ThBag>Produto</ThBag>
-              <ThBag>Preço</ThBag>
-              <ThBag>Quantidade</ThBag>
-              <ThBag>Subtotal</ThBag>
-            </tr>
-          </thead>
+          {!isMobile && (
+            <thead style={{ background: '#ededed' }}>
+              <tr>
+                <ThBag></ThBag>
+                <ThBag></ThBag>
+                <ThBag>Produto</ThBag>
+                <ThBag>Preço</ThBag>
+                <ThBag>Quantidade</ThBag>
+                <ThBag>Subtotal</ThBag>
+              </tr>
+            </thead>
+          )}
 
           <tbody>
             {bag &&
               bag.map((bolinha, index) => (
-                <tr key={bolinha.product.name + index.toString()}>
-                  <>
-                    <TdBag>
-                      <ButtonDelete
-                        onClick={() => deleteItem(bolinha.product.name)}
+                <>
+                  {isMobile ? (
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        border: '1px solid #dadada',
+                        padding: '12px',
+                        marginBottom: '12px',
+                      }}
+                    >
+                      <div
+                        style={{ display: 'flex', justifyContent: 'flex-end' }}
                       >
-                        <CloseCircle color="#739669fc" width={24} />
-                      </ButtonDelete>
-                    </TdBag>
-                    <TdBag>
-                      <img
-                        src={bolinha.product.image}
-                        style={{ width: '100px' }}
-                      />
-                    </TdBag>
-                    <TdBag>{bolinha.product.name}</TdBag>
-                    <TdBag>R$ {bolinha.product.price.toFixed(2)}</TdBag>
-                    <TdBag>
+                        <ButtonDelete
+                          onClick={() => deleteItem(bolinha.product.name)}
+                        >
+                          <CloseCircle color="#739669fc" width={24} />
+                        </ButtonDelete>
+                      </div>
                       <div
                         style={{ display: 'flex', justifyContent: 'center' }}
                       >
+                        <img
+                          src={bolinha.product.image}
+                          style={{ width: '100px' }}
+                        />
+                      </div>
+
+                      <FlexDivMobile>
+                        <PInfo>Produto:</PInfo>
+                        <p>{bolinha.product.name}</p>
+                      </FlexDivMobile>
+
+                      <FlexDivMobile>
+                        <PInfo>Preço:</PInfo>
+                        <p>R$ {bolinha.product.price.toFixed(2)}</p>
+                      </FlexDivMobile>
+
+                      <FlexDivMobile>
+                        <PInfo>Quantidade:</PInfo>
                         <input
                           type={'number'}
-                          style={{ width: '52px' }}
+                          style={{ width: '52px', height: '36px' }}
                           value={bolinha.quantity}
                           onChange={(e) => {
                             const newBag = [...bag];
@@ -121,13 +149,63 @@ const Bag: NextPage = () => {
                             setBag(newBag);
                           }}
                         />
-                      </div>
-                    </TdBag>
-                    <TdBag>
-                      R$ {(bolinha.product.price * bolinha.quantity).toFixed(2)}
-                    </TdBag>
-                  </>
-                </tr>
+                      </FlexDivMobile>
+
+                      <FlexDivMobile>
+                        <PInfo>Subtotal:</PInfo>
+                        <p>
+                          R$
+                          {(bolinha.product.price * bolinha.quantity).toFixed(
+                            2,
+                          )}
+                        </p>
+                      </FlexDivMobile>
+                    </div>
+                  ) : (
+                    <tr key={bolinha.product.name + index.toString()}>
+                      <TdBag>
+                        <ButtonDelete
+                          onClick={() => deleteItem(bolinha.product.name)}
+                        >
+                          <CloseCircle color="#739669fc" width={24} />
+                        </ButtonDelete>
+                      </TdBag>
+                      <TdBag>
+                        <img
+                          src={bolinha.product.image}
+                          style={{ width: '100px' }}
+                        />
+                      </TdBag>
+                      <TdBag>{bolinha.product.name}</TdBag>
+                      <TdBag>R$ {bolinha.product.price.toFixed(2)}</TdBag>
+                      <TdBag>
+                        <div
+                          style={{ display: 'flex', justifyContent: 'center' }}
+                        >
+                          <input
+                            type={'number'}
+                            style={{ width: '52px' }}
+                            value={bolinha.quantity}
+                            onChange={(e) => {
+                              const newBag = [...bag];
+                              newBag[index].quantity = e.target.valueAsNumber;
+                              localStorage.setItem(
+                                'bag',
+                                JSON.stringify(newBag),
+                              );
+
+                              setBag(newBag);
+                            }}
+                          />
+                        </div>
+                      </TdBag>
+                      <TdBag>
+                        R${' '}
+                        {(bolinha.product.price * bolinha.quantity).toFixed(2)}
+                      </TdBag>
+                    </tr>
+                  )}
+                </>
               ))}
           </tbody>
         </TableBag>
@@ -145,7 +223,7 @@ const Bag: NextPage = () => {
           padding: '92px 0 92px 0',
         }}
       >
-        <div style={{ width: '40%', marginRight: '148px' }}>
+        <CartDiv>
           <CartP>Total no carrinho</CartP>
           <table style={{ width: '100%', paddingTop: '20px' }}>
             <tbody>
@@ -175,7 +253,7 @@ const Bag: NextPage = () => {
               <Link href="/store">Continuar comprando</Link>
             </ButtonBuy>
           </DivButton>
-        </div>
+        </CartDiv>
       </div>
     </>
   );
