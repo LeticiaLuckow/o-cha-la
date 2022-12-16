@@ -4,16 +4,20 @@ import { Router, useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import { ProductBag } from '../../types/product';
-import { PageTitles, TdCart, ThCart } from '../bag/styles';
-import { ButtonCheckout, LabelInfo, PageSubTitles } from '../checkout/styles';
-import { ButtonReturn } from '../login/styles';
+import { PageTitles, TdCart, ThCart } from '../../styles/bag/styles';
+import {
+  ButtonCheckout,
+  LabelInfo,
+  PageSubTitles,
+} from '../../styles/checkout/styles';
+import { ButtonReturn } from '../../styles/login/styles';
 import {
   ButtonPayment,
   DivPayTwo,
   DivPayment,
   InputTypeNumber,
   DivPayOne,
-} from './styles';
+} from '../../styles/payment/styles';
 
 const Payment: NextPage = () => {
   const [bag, setBag] = useState<ProductBag[]>([]);

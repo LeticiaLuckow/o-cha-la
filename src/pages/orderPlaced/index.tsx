@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
 import Header from '../../components/header';
 import { CheckmarkCircle2 } from '@styled-icons/evaicons-solid';
-import { ButtonNewRequest, OrderP } from './styles';
-import { ButtonReturn } from '../login/styles';
+import { ButtonNewRequest, OrderP } from '../../styles/orderPlaced/styles';
+import { ButtonReturn } from '../../styles/login/styles';
 import Link from 'next/link';
 
 const orderPlaced: NextPage = () => {

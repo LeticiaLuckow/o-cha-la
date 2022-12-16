@@ -8,7 +8,7 @@ import {
 } from '../../components/card/styles';
 import Header from '../../components/header';
 import { ObjectProduct } from '../../types/product';
-import { DivProduct, ImgProduct } from './styles';
+import { DivProduct, ImgProduct } from '../../styles/productDescription/styles';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 

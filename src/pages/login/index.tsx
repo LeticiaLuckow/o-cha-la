@@ -9,7 +9,7 @@ import {
   DivLink,
   DivLogin,
   InputLogin,
-} from './styles';
+} from '../../styles/login/styles';
 
 const Login: NextPage = () => {
   const router = useRouter();

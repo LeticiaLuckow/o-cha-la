@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Card from '../../components/card';
 import Header from '../../components/header';
 import { ObjectProduct } from '../../types/product';
-import { CardStore, CardStoreP } from './styles';
+import { CardStore, CardStoreP } from '../../styles/store/styles';
 import BagToast from '../../components/bagToast';
 
 const Store: NextPage = () => {

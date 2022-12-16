@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
 import { ProductBag } from '../../types/product';
-import { PageTitles, TdCart, ThCart } from '../bag/styles';
+import { PageTitles, TdCart, ThCart } from '../../styles/bag/styles';
 import { useRouter } from 'next/router';
 import {
   ButtonCalculate,
@@ -13,8 +13,8 @@ import {
   InputCep,
   LabelInfo,
   PageSubTitles,
-} from './styles';
-import { ButtonReturn } from '../login/styles';
+} from '../../styles/checkout/styles';
+import { ButtonReturn } from '../../styles/login/styles';
 import Link from 'next/link';
 import { ArrowForward } from '@styled-icons/evaicons-solid';
 

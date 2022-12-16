@@ -19,7 +19,7 @@ import {
   TdCart,
   ThBag,
   ThCart,
-} from './styles';
+} from '../../styles/bag/styles';
 import { ProductBag } from '../../types/product';
 import Link from 'next/link';
 import { CloseCircle } from '@styled-icons/evaicons-solid';
