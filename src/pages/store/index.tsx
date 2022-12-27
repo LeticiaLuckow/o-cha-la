@@ -5,16 +5,17 @@ import Card from '../../components/card';
 import Header from '../../components/header';
 import { ObjectProduct } from '../../types/product';
 import { CardStore, CardStoreP } from '../../styles/store/styles';
-import BagToast from '../../components/bagToast';
+import { PRODUCTS_MOCK } from './products-mock';
 
 const Store: NextPage = () => {
   const [product, setProduct] = useState<ObjectProduct[]>();
 
   useEffect(() => {
-    axios.get('http://localhost:1337/api/products').then((response) => {
-      console.log(response.data.data);
-      setProduct(response.data.data);
-    });
+    // axios.get('http://localhost:1337/api/products').then((response) => {
+    //   console.log(response.data.data);
+    //   setProduct(response.data.data);
+    // });
+    setProduct(PRODUCTS_MOCK.data);
   }, []);
 
   return (
