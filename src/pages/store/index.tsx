@@ -5,7 +5,7 @@ import Card from '../../components/card';
 import Header from '../../components/header';
 import { ObjectProduct } from '../../types/product';
 import { CardStore, CardStoreP } from '../../styles/store/styles';
-import { PRODUCTS_MOCK } from './products-mock';
+import { PRODUCTS_MOCK } from '../../mocks/products-mock';
 
 const Store: NextPage = () => {
   const [product, setProduct] = useState<ObjectProduct[]>();
